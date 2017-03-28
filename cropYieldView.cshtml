@@ -1,0 +1,59 @@
+@{
+    ViewBag.Title = "Prediction";
+}
+
+<style>
+    .cropyieldLeft {
+        margin-top: 150px;
+        margin-left: 50px;
+    }
+
+    #cropyieldHeading {
+        background: #88ad4d;
+        padding-top: 20px
+    }
+
+    #cropyieldTitle {
+        text-align: center;
+        font-size: 200%;
+    }
+
+    .cropyieldForm {
+        margin: auto;
+        width: 250px;
+    }
+
+    .cropyieldResult {
+        margin-left: 20px;
+    }
+</style>
+
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-4 cropyieldLeft">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="cropyieldHeading">
+                    <div class="panel-title">
+                        <h3 id="cropyieldTitle">Predict Future Crop Yield</h3>
+                    </div>
+                </div>
+
+                <form action="~/Home/PredictionCalculate" method="post" class="cropyieldForm">
+                    <div class="fallback">
+                        Temperature:<br />
+                        <input type="text" name="Temperature"><br />
+                        NDVI:<br />
+                        <input type="text" name="NDVI"><br />
+                        Rainfall:<br />
+                        <input type="text" name="Rainfall"><br /><br />
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+                <div>
+                    <h3 class="cropyieldResult">CropYield: &nbsp;&nbsp; @ViewBag.CropYield</h3>
+                    <h3 class="cropyieldResult">RSquared: &nbsp;&nbsp; @ViewBag.RSquared</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
